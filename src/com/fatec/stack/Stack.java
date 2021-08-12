@@ -12,7 +12,7 @@ public class Stack {
     }
 
     public boolean push(int data) {
-        if (top == (size - 1)) {
+        if (isFull()) {
             System.out.println("Stack OverFlow");
             return false;
         }
@@ -22,7 +22,7 @@ public class Stack {
     }
 
     public int pop() {
-        if(top < 0) {
+        if(isEmpty()) {
             System.out.println("Stack UnderFlow");
             return 0;
         }
@@ -33,14 +33,14 @@ public class Stack {
     }
 
     public int peek() {
-        if (top < 0 ) {
+        if (isEmpty()) {
             System.out.println("Stack is empty");
         }
         return stack[top];
     }
 
     public boolean contains(int target) {
-        if (top<0) {
+        if (isEmpty()) {
             System.out.println("Stack is empty");
             return false;
         }
@@ -52,6 +52,14 @@ public class Stack {
         }
 
         return false;
+    }
+
+    public boolean isEmpty() {
+        return top < 0;
+    }
+
+    public boolean isFull() {
+        return top == (size - 1);
     }
 
 }
